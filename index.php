@@ -1,5 +1,10 @@
 <?php
 require 'db/connect.php';
+require 'functions.php';
+require 'db/task_create.php';
+
+insertTask();
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -20,8 +25,46 @@ require 'db/connect.php';
 <div class="container">
     <h1 class="text-center">To Do application</h1>
 
-    <h2 class="pull-left">Task list</h2>
-    <button class="btn btn-lg btn-primary pull-right">Add task</button>
+    <div class="clearfix">
+        <h2 class="pull-left">Task list</h2>
+        <button class="btn btn-lg btn-primary pull-right" data-toggle="modal" data-target="#myModal">Add task</button>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add task to the list</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="index.php" method="post">
+                        <div class="form-group">
+                            <label for="name">Task Name</label>
+                            <input type="text" class="form-control" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="priority">Priority</label>
+                            <input type="text" class="form-control" name="priority">
+                        </div>
+                        <input type="submit" name="submit" class="btn btn-primary">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <?php if ( isset($_POST['submit']) ): ?>
+        <div class="well text-center">
+            <h2><?php showMessage("Task created") ?> </h2>
+        </div>
+    <?php endif; ?>
     <table class="table table-hover">
         <thead>
         <tr>
@@ -70,6 +113,8 @@ require 'db/connect.php';
         <h2>Grzegorz Topolewski <i class="far fa-copyright"></i> <?php echo date("Y"); ?></h2>
     </footer>
 </div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
