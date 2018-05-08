@@ -2,8 +2,14 @@
 require 'db/connect.php';
 require 'functions.php';
 require 'db/task_create.php';
+require 'db/task_read.php';
 
+//function adds tasks to the DB
 insertTask();
+
+//get mysqli object with Data
+$tasksData = getTasksData();
+
 
 ?>
 <!doctype html>
@@ -48,7 +54,12 @@ insertTask();
                         </div>
                         <div class="form-group">
                             <label for="priority">Priority</label>
-                            <input type="text" class="form-control" name="priority">
+<!--                            <input type="text" class="form-control" name="priority">-->
+                            <select class="form-control" name="priority">
+                                <option value="High">High</option>
+                                <option value="Medium">Medium</option>
+                                <option value="Low">Low</option>
+                            </select>
                         </div>
                         <input type="submit" name="submit" class="btn btn-primary">
                     </form>
@@ -75,36 +86,19 @@ insertTask();
         </tr>
         </thead>
         <tbody>
+        <?php while ($row = mysqli_fetch_assoc($tasksData)): ?>
         <tr>
-            <td>John</td>
-            <td>Doe</td>
-            <td>john@example.com</td>
+            <td><?php echo $row['title']; ?></td>
+            <td><?php echo $row['priority']; ?></td>
+            <td><?php echo $row['created_at']; ?></td>
             <td>
                 <span class="btn btn-info">Amend</span>
                 <span class="btn btn-danger">Delete</span>
                 <span class="btn btn-success"><i class="fas fa-check"></i></span>
             </td>
         </tr>
-        <tr>
-            <td>Mary</td>
-            <td>Moe</td>
-            <td>mary@example.com</td>
-            <td>
-                <span class="btn btn-info">Amend</span>
-                <span class="btn btn-danger">Delete</span>
-                <span class="btn btn-success"><i class="fas fa-check"></i></span>
-            </td>
-        </tr>
-        <tr>
-            <td>July</td>
-            <td>Dooley</td>
-            <td>july@example.com</td>
-            <td>
-                <span class="btn btn-info">Amend</span>
-                <span class="btn btn-danger">Delete</span>
-                <span class="btn btn-success"><i class="fas fa-check"></i></span>
-            </td>
-        </tr>
+        <?php endwhile; ?>
+
         </tbody>
     </table>
 </div>
