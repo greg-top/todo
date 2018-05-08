@@ -1,5 +1,5 @@
 <?php
-    require 'db/connect.php';
+require 'db/connect.php';
 ?>
 <!doctype html>
 <html lang="en">
@@ -20,13 +20,15 @@
 <div class="container">
     <h1 class="text-center">To Do application</h1>
 
-    <h2>Task list</h2>
+    <h2 class="pull-left">Task list</h2>
+    <button class="btn btn-lg btn-primary pull-right">Add task</button>
     <table class="table table-hover">
         <thead>
         <tr>
             <th>Task Name</th>
             <th>Priority</th>
             <th>Created</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -34,16 +36,31 @@
             <td>John</td>
             <td>Doe</td>
             <td>john@example.com</td>
+            <td>
+                <span class="btn btn-info">Amend</span>
+                <span class="btn btn-danger">Delete</span>
+                <span class="btn btn-success"><i class="fas fa-check"></i></span>
+            </td>
         </tr>
         <tr>
             <td>Mary</td>
             <td>Moe</td>
             <td>mary@example.com</td>
+            <td>
+                <span class="btn btn-info">Amend</span>
+                <span class="btn btn-danger">Delete</span>
+                <span class="btn btn-success"><i class="fas fa-check"></i></span>
+            </td>
         </tr>
         <tr>
             <td>July</td>
             <td>Dooley</td>
             <td>july@example.com</td>
+            <td>
+                <span class="btn btn-info">Amend</span>
+                <span class="btn btn-danger">Delete</span>
+                <span class="btn btn-success"><i class="fas fa-check"></i></span>
+            </td>
         </tr>
         </tbody>
     </table>
