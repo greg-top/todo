@@ -10,7 +10,6 @@ insertTask();
 //get mysqli object with Data
 $tasksData = getTasksData();
 
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -29,7 +28,7 @@ $tasksData = getTasksData();
 </head>
 <body>
 <div class="container">
-    <h1 class="text-center">To Do application</h1>
+    <h1 class="text-center">To Do List app</h1>
 
     <div class="clearfix">
         <h2 class="pull-left">Task list</h2>
@@ -49,12 +48,11 @@ $tasksData = getTasksData();
                 <div class="modal-body">
                     <form action="index.php" method="post">
                         <div class="form-group">
-                            <label for="name">Task Name</label>
+                            <label for="name">Task Name *</label>
                             <input type="text" class="form-control" name="name">
                         </div>
                         <div class="form-group">
-                            <label for="priority">Priority</label>
-<!--                            <input type="text" class="form-control" name="priority">-->
+                            <label for="priority">Priority *</label>
                             <select class="form-control" name="priority">
                                 <option value="High">High</option>
                                 <option value="Medium">Medium</option>
@@ -93,7 +91,7 @@ $tasksData = getTasksData();
             <td><?php echo $row['created_at']; ?></td>
             <td>
                 <span class="btn btn-info">Amend</span>
-                <span class="btn btn-danger">Delete</span>
+                <a href="db/task_delete.php?id=<?php echo $row['id'] ?>" class="btn btn-danger">Delete</a>
                 <span class="btn btn-success"><i class="fas fa-check"></i></span>
             </td>
         </tr>
