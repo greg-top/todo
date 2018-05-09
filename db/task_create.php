@@ -2,7 +2,6 @@
 
 require 'connect.php';
 
-
 if ( isset($_POST['submit']) ) {
 
     //$connection exists in another file so make it GLOBAL
