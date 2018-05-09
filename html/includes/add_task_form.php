@@ -21,7 +21,7 @@
                             <option value="Low">Low</option>
                         </select>
                     </div>
-                    <input type="submit" name="submit" class="btn btn-primary">
+                    <input type="submit" name="submit" value="Add" class="btn btn-primary">
                 </form>
             </div>
             <div class="modal-footer">

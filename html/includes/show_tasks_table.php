@@ -39,7 +39,7 @@
                                                 <option value="Low" <?php if( $row['priority']=="Low" ) echo ' selected'; ?> >Low</option>
                                             </select>
                                         </div>
-                                        <input type="submit" name="update" class="btn btn-primary">
+                                        <input type="submit" name="update" value="Update" class="btn btn-primary">
                                     </form>
                                 </div>
                                 <div class="modal-footer">
