@@ -1,0 +1,24 @@
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+h1 {
+    background: aliceblue;
+    margin: 0 auto 80px;
+    padding: 20px 0;
+}
+
+footer {
+    background: aliceblue;
+    padding: 20px 0;
+    width: 100%;
+}
+
+.undo {
+    display: none;
+}
+
+.tasks-todo {
+    min-height: 300px;
+}
