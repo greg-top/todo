@@ -22,3 +22,7 @@ footer {
 .tasks-todo {
     min-height: 300px;
 }
+
+.modal-backdrop {
+    opacity: 1 !important;
+}

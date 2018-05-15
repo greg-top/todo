@@ -1,5 +1,7 @@
+<?php include 'includes/first_view_modal.php'?>
 <div class="container">
     <h1 class="text-center">To Do List app</h1>
+    <h2>Welcome <?php if ( isset($_COOKIE['fname']) ) { echo $_COOKIE['fname']; } else { echo 'my friend'; } ?></h2>
 
     <div class="clearfix">
         <h2 class="pull-left">Task list</h2>
